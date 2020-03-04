@@ -211,8 +211,8 @@ def count_words(ls, vocab, posTagged=False):
 def build_vectored_df(x, y, yName, group, transcript):
     tempDF = count_words(x, build_vocab(x))
     tempDF[yName] = y
-    tempDF['group'] = group
-    tempDF['transcript'] = transcript
+    tempDF['|-group'] = group
+    tempDF['|-transcript'] = transcript
     
     return pd.DataFrame(data = tempDF)
 
@@ -260,7 +260,7 @@ def gen_data_and_df(fList, removeNon = False, isTrain = True, cvSplits = None):
     if(removeNon):
     	x, y, group, transcript = filterNon(x, y, group, transcript)
     
-    df = build_vectored_df(x,y,"Collab", group, transcript)
+    df = build_vectored_df(x,y,"|-Collab", group, transcript)
     #print("Counting: " + str(counting))
     return (x,y,df)
 
@@ -268,7 +268,7 @@ def gen_data_and_df(fList, removeNon = False, isTrain = True, cvSplits = None):
 def df_transform(dict_form):
 	
 	for key in dict_form.keys():
-		if(key not in ["Collab", "group", "transcript"]):
+		if(key not in ["|-Collab", "|-group", "|-transcript"]):
 			numDocs = len(dict_form[key])
 			numFreq = len([x for x in dict_form[key]  if x != 0  ])
 			idf = np.log(numDocs/numFreq)
@@ -280,16 +280,16 @@ def tf_transform(dict_form):
 	#print(dict_form)
 	
 	#compute sum for each row
-	sum_list = [0]*len(dict_form['Collab'])
+	sum_list = [0]*len(dict_form['|-Collab'])
 	for key in dict_form.keys():
-		if(key not in ["Collab", "group", "transcript"]):
+		if(key not in ["|-Collab", "|-group", "|-transcript"]):
 			for i in range(len(dict_form[key])):
 				sum_list[i] += dict_form[key][i]
 				if(sum_list[i] == 0):
 					sum_list[i] = 1
 	
 	for key in dict_form.keys():
-		if(key not in ["Collab", "group", "transcript"]):
+		if(key not in ["|-Collab", "|-group", "|-transcript"]):
 			for i in range(len(dict_form[key])):
 				dict_form[key][i] = dict_form[key][i]/sum_list[i] 
 	return dict_form
@@ -312,8 +312,8 @@ if __name__ == "__main__":
     di = [dataPath+x for x in os.listdir(dataPath) if x.endswith(".xlsx") or x.endswith(".xls")]
 
     x,y,df = gen_data_and_df(di, removeNon = False)
-    print(set(df['Collab']))
-    print(Counter(df['Collab']))
+    print(set(df['|-Collab']))
+    print(Counter(df['|-Collab']))
     
     #print(x[26])
     #for idx, i in enumerate(x):

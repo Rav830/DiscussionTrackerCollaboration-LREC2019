@@ -61,7 +61,7 @@ print(len(df.columns))
 """
 
 print("The Class Distribution is:")
-classDist = Counter(df['Collab'])
+classDist = Counter(df['|-Collab'])
 for k in classDist.keys():
     print("\t"+str(pr.conversion_y(k))+":"+str(classDist[k]))
 
@@ -121,10 +121,10 @@ def compute_stats(actual, predicted, doPrint = False):
     return retval
 
 print("Defining vars for ease of use")
-xDF = df[df.columns.difference(['Collab','group', 'transcript'])]
-yDF = df['Collab']
-gDF = df['group']
-tDF = df['transcript']
+xDF = df[df.columns.difference(['|-Collab','|-group', '|-transcript'])]
+yDF = df['|-Collab']
+gDF = df['|-group']
+tDF = df['|-transcript']
 logo = [x for x in LeaveOneGroupOut().split(xDF, yDF, gDF)]
 
 scorer = make_scorer(classification_report_with_metric)

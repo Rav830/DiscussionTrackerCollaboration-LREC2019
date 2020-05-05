@@ -8,10 +8,11 @@ import nltk
 import json
 from unidecode import unidecode
 from collections import Counter
-from nltk.corpus import stopwords
 
 nltk.download('punkt')
+nltk.download('stopwords')
 
+from nltk.corpus import stopwords
 stopWords = set(stopwords.words("english"))
 keep_words = set([])
 

@@ -13,13 +13,18 @@ The folders in this project are:
 
 
 ## Data
-The data folder is currently empty and needs to be filled in. Go to discussiontracker.cs.pitt.edu and fill out the google form to get access to the data.
+The data folder is currently empty and needs to be filled in. Go to the [data site](discussiontracker.cs.pitt.edu) and fill out the google form to get access to the data.
 
-Once you get the data, make a folder called 'EAGER' (caps is necessary) in the 'Data' folder and place the excel files inside of them.
+Once you get the data, place the excel files inside the folder called 'EAGER' in the 'Data' folder.
 
-## Packages
+## Packages and Python Version
 
-TBD
+The packages used are in the Python/requirements.txt file and can be installed using 
+```
+pip install -r requirements.txt
+```
+
+Also this code was tested on python3.7 
 
 
 
@@ -31,5 +36,14 @@ python3.7 model_Dummy.py eager
 OR
 cd Python
 ./cmdList.sh #to run all experiments
+```
+
+This code uses arguments to pull off most of the results that are seen. To get the results seen in the report run following commands. 
+```
+python3.7 model_Naive_Bayes.py eager --remove-non --tf-idf --use-cv ../Data/Eager_10_fold_crossvalidation.json
+
+python3.7 model_Gaussian_Naive_Bayes_regroup.py eager --remove-non --use-cv ../Data/Eager_10_fold_crossvalidation.json
+
+python3.7 model_DetectNon_Gaussian_Naive_Bayes.py eager --use-cv ../Data/Eager_10_fold_crossvalidation.json
 ```
 

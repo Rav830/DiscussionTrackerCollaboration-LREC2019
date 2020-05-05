@@ -1,4 +1,4 @@
-# DiscussionTrackerCollaboration-LREC2019
+# DiscussionTrackerCollaboration-LREC2020
 This is code for the Discussion Tracker Project set to produce the results found in our LREC submission
 
 
@@ -7,7 +7,7 @@ This is code for the Discussion Tracker Project set to produce the results found
 
 The folders in this project are:
 
-1. Data
+1. Data - This folder will contain the data to be used 
 2. Python
 3. Results
 
@@ -23,7 +23,7 @@ TBD
 
 ```
 cd Python
-python3.7 model_Dummy.py
+python3.7 model_Dummy.py eager
 OR
 cd Python
 ./cmdList.sh #to run all experiments

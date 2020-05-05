@@ -13,7 +13,7 @@ The folders in this project are:
 
 
 ## Data
-The data folder is currently empty and needs to be filled in. Go to <discussiontracker.cs.pitt.edu> and fill out the google form to get access to the data.
+The data folder is currently empty and needs to be filled in. Go to discussiontracker.cs.pitt.edu and fill out the google form to get access to the data.
 
 Once you get the data, make a folder called 'EAGER' (caps is necessary) in the 'Data' folder and place the excel files inside of them.
 
